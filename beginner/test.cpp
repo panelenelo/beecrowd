@@ -6,19 +6,18 @@ using namespace std;
 
 int main(){
 
-    map<string, int> s;
+    vector<int> list = {13, 21, 51, 2, 1, 17, 9, 35};
 
-    s["mangoes"] = 12;
-    s["pines"] = 3;
-    //cout << s["mangoes"] << endl;
-    //cout << s["pines"] << endl;
+    for(auto i: list){
+        cout << i << endl;
+    }
 
-    s["pines"]++;
+    sort(list.begin(), list.end());
 
-    //cout << s["pines"] << endl;
+    cout << "---------------------------" << endl;
 
-    for(auto i: s){
-        cout << i.first << " " << i.second << endl;
+    for(auto i: list){
+        cout << i << endl;
     }
 
     return 0;
