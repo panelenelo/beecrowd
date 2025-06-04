@@ -8,17 +8,25 @@ int main(){
 
     vector<int> list = {13, 21, 51, 2, 1, 17, 9, 35};
 
-    for(auto i: list){
-        cout << i << endl;
-    }
+    string word = "word";
+    string nnu = "nnu";
 
-    sort(list.begin(), list.end());
+    int j=0;
 
-    cout << "---------------------------" << endl;
-
-    for(auto i: list){
-        cout << i << endl;
-    }
+    cout << nnu.size();
+    
 
     return 0;
 }
+
+
+
+
+/*
+
+    firstnada
+         gyyw
+
+
+
+*/
