@@ -6,14 +6,17 @@ using namespace std;
 
 int main(){
 
-    vector<int> list = {13, 21, 51, 2, 1, 17, 9, 35};
+    vector<int> vector = {13, 21, 51, 2, 1, 17, 9, 35};
+    
+    string word = "word is alive";    
 
-    string word = "word";
-    string nnu = "nnu";
+    string subs = word.substr(5, word.size()-1);
 
-    int j=0;
+    list<int> thing = {13, 21, 51, 2, 1, 17, 9, 35};
 
-    cout << nnu.size();
+    for(auto i : thing){
+        cout << i << endl;
+    }
     
 
     return 0;
@@ -22,11 +25,5 @@ int main(){
 
 
 
-/*
-
-    firstnada
-         gyyw
-
-
-
-*/
+  
+  

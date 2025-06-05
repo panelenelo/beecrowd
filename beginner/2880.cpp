@@ -15,7 +15,9 @@ int main(){
 
 
     while(crib.size()+j <= word.size()){
+        
         for(i=0;i<crib.size();i++){
+        
             if(crib[i] == word[j+i]){
                 break;
             }else if(i+1 == crib.size()){
