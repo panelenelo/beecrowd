@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <iostream>
 #include <bits/stdc++.h>
+#define optimize ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
+#define endl "\n"
 
 using namespace std;
 
