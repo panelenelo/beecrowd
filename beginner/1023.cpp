@@ -10,6 +10,12 @@ struct consum{
     int med;
 };
 
+void structsort(vector<consum> ption){
+
+        
+
+}
+
 int main(){
 
     int n;
@@ -18,7 +24,9 @@ int main(){
         int m=n;
         int j=1;
         vector<consum> ption;
+
         while(m--){
+
             int x, y;
             cin >> x >> y;
 
@@ -26,10 +34,13 @@ int main(){
 
             ption.push_back(z);
 
-            cout << "Cidade# " << j << ":"<< endl;
-
-            j++;
         }
+        
+        j++;
+
+        cout << "Cidade# " << j << ":"<< endl;
+
+        structsort(ption);
 
         cin >> n;
     }
