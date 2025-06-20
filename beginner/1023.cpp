@@ -12,7 +12,7 @@ struct consum{
 
 void structsort(vector<consum> ption){
 
-        
+        //implement a bubble sort here
 
 }
 
