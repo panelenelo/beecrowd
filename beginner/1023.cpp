@@ -1,48 +1,66 @@
 #include <stdio.h>
 #include <iostream>
-#include <vector>
+#include <list>
 
 using namespace std;
 
-struct consum{
-    int peo;
-    int com;
-    int med;
+struct residence {
+    int people;
+    int comsumption;
+    int perPeople;
 };
 
-void structsort(vector<consum> ption){
 
-        //implement a bubble sort here
-
-}
 
 int main(){
 
-    int n;
+    int n, city=1;
+    list<residence> residences;
+    list<residence>::iterator it;
+
     cin >> n;
+
     while(n){
-        int m=n;
-        int j=1;
-        vector<consum> ption;
 
-        while(m--){
+        int m = n;
 
-            int x, y;
-            cin >> x >> y;
 
-            consum z = {x, y, y/x};
+        while(m){
+            residence resi;
+            cin >> resi.people >> resi.comsumption;
 
-            ption.push_back(z);
+            resi.perPeople = (resi.comsumption)/(resi.people);
 
+            if(residences.empty()){
+                residences.push_front(resi);
+            }else {
+                for(it=residences.begin() ; it!=residences.end() ; it++){
+                    if(resi.perPeople <= it->perPeople){
+                        residences.insert(it, resi);
+                        break;
+                    }else if(next(it) == residences.end()){
+                        residences.push_back(resi);
+                        break;
+                    }
+                }
+            }
+            m--;
         }
+
+        int consumMed = 0;
+        int totalPeople = 0;
+        cout << "Cidade# " << city << ":"<< endl;
+        for(auto i : residences){
+            cout << i.people << "-" << i.perPeople << " ";
+            consumMed += i.comsumption;
+            totalPeople += i.people;
+        }
+        //cout << endl << "Consumo medio: " << consumMed/totalPeople << " m3." << endl << endl;
+        printf("\nConsumo medio: %.2f m3.\n\n", consumMed/float(totalPeople));
         
-        j++;
-
-        cout << "Cidade# " << j << ":"<< endl;
-
-        structsort(ption);
-
         cin >> n;
+        city++;
+        residences.clear();
     }
 
     return 0;
