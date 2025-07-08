@@ -1,66 +1,54 @@
 #include <stdio.h>
 #include <iostream>
-#include <list>
+#include <map>
 
 using namespace std;
-
-struct residence {
-    int people;
-    int comsumption;
-    int perPeople;
-};
-
 
 
 int main(){
 
     int n, city=1;
-    list<residence> residences;
-    list<residence>::iterator it;
+    map<int,int> consum;
+    map<int,int>::iterator it = consum.begin();
 
     cin >> n;
 
     while(n){
 
         int m = n;
-
+        int cs = 0;
+        int tp = 0;
 
         while(m){
-            residence resi;
-            cin >> resi.people >> resi.comsumption;
-
-            resi.perPeople = (resi.comsumption)/(resi.people);
-
-            if(residences.empty()){
-                residences.push_front(resi);
-            }else {
-                for(it=residences.begin() ; it!=residences.end() ; it++){
-                    if(resi.perPeople <= it->perPeople){
-                        residences.insert(it, resi);
-                        break;
-                    }else if(next(it) == residences.end()){
-                        residences.push_back(resi);
-                        break;
-                    }
-                }
+            
+            int x,y;
+            cin >> x >> y;
+            tp += x;
+            cs += y;
+            if(consum.find(y/x) == consum.end()){
+                consum.insert(pair(y/x,x));
+            }else{
+                it = consum.find(y/x);
+                it->second += x;
             }
+
             m--;
+
         }
 
-        int consumMed = 0;
-        int totalPeople = 0;
         cout << "Cidade# " << city << ":"<< endl;
-        for(auto i : residences){
-            cout << i.people << "-" << i.perPeople << " ";
-            consumMed += i.comsumption;
-            totalPeople += i.people;
+        for(auto i: consum){
+            cout << i.second << "-" << i.first << " ";
         }
-        //cout << endl << "Consumo medio: " << consumMed/totalPeople << " m3." << endl << endl;
-        printf("\nConsumo medio: %.2f m3.\n\n", consumMed/float(totalPeople));
+        
+        printf("\nConsumo medio: %.2f m3.\n\n", ((100*cs)/tp)/100.0);
+        
+        consum.clear();
+        cs = 0;
+        tp = 0;
         
         cin >> n;
         city++;
-        residences.clear();
     }
 
     return 0;

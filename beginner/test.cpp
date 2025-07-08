@@ -6,16 +6,17 @@ using namespace std;
 
 int main(){
 
-    vector<int> vector = {13, 21, 51, 2, 1, 17, 9, 35};
-    
-    string word = "word is alive";    
+    map<int,int> thing;
 
-    string subs = word.substr(5, word.size()-1);
-
-    list<int> thing = {13, 21, 51, 2, 1, 17, 9, 35};
+    thing.insert(pair(1,12));
+    thing.insert(pair(2,22));
+    thing.insert(pair(2,17));
 
     for(auto i : thing){
-        cout << i << endl;
+        if(i.first == 2){
+            i.second = 19;
+        }
+        cout << i.first << " - " << i.second << endl;
     }
     
 
