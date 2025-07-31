@@ -1,3 +1,4 @@
 # Beecrowd
-Beecrowd problem solutions and studies
+Beecrowd problem solutions and studies.
+
 
