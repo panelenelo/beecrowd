@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func B1633() {
 
 	for true {
 		var n int
