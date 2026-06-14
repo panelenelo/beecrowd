@@ -24,6 +24,7 @@ func B1069() {
 		}
 		fmt.Println(d)
 		d = 0
+		stack = stack[:0]
 	}
 
 }
