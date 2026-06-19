@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strconv"
-	"strings"
 )
 
 func B1084() {
@@ -19,26 +17,27 @@ func B1084() {
 
 		fmt.Scanf("%s", &x)
 
-		// temp1 := N - (N - D)
-		temp2 := 0
-		temp3 := N - D
-		var maxv, maxi int
-		var result []string
+		temp1 := []rune(x)
+		for i, j := range temp1 {
+			temp1[i] = j - '0'
+		}
 
-		for temp3 > 0 {
-			for i, j := range x[temp2 : D+1] {
-				if maxv < int(j-'0') {
-					maxv = int(j - '0')
-					maxi = i
-					fmt.Printf("i=%d, j=%d\n", i, maxv)
+		for range D {
+			minv := int(temp1[0])
+			mini := 0
+			for i, j := range temp1 {
+				if int(j) < minv {
+					mini = i
+					minv = int(j)
 				}
 			}
-			temp2 = maxi + 1
-			temp3--
-			D++
-			result = append(result, strconv.Itoa(maxv))
+			// temp1 = slices.Delete(temp1, mini, mini+1)
+			temp1 = append(temp1[:mini], temp1[mini+1:]...)
 		}
-		y := strings.Join(result, "")
+		for i, j := range temp1 {
+			temp1[i] = j + '0'
+		}
+		y := string(temp1)
 		fmt.Println(y)
 	}
 
